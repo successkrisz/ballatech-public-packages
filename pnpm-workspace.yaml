@@ -1,0 +1,12 @@
+packages:
+  - packages/*
+
+catalog:
+  '@effect/platform': ^0.90.6
+  '@types/node': ^22.18.0
+  effect: ^3.17.9
+  '@biomejs/biome': ^2.2.2
+
+onlyBuiltDependencies:
+  - esbuild
+  - msgpackr-extract

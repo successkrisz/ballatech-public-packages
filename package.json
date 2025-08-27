@@ -1,0 +1,43 @@
+{
+	"name": "@ballatech/public-packages",
+	"version": "1.0.0",
+	"description": "Suite of public packages for Ballatech",
+	"private": true,
+	"scripts": {
+		"format": "biome check --write",
+		"lint": "biome check",
+		"test": "vitest --run",
+		"test:watch": "vitest --watch",
+		"prepare": "husky",
+		"lint-staged": "lint-staged",
+		"typecheck": "pnpm -r --filter './packages/**' run typecheck",
+		"build": "pnpm -r --filter './packages/**' run build",
+		"changeset": "changeset",
+		"release:version": "changeset version",
+		"release:publish": "changeset publish",
+		"update": "pnpm dlx taze -r",
+		"new": "node ./scripts/new-package.mjs"
+	},
+	"keywords": [],
+	"author": "Krisztian Balla",
+	"license": "MIT",
+	"packageManager": "pnpm@10.15.0",
+	"devDependencies": {
+		"@biomejs/biome": "catalog:",
+		"@changesets/changelog-github": "^0.5.1",
+		"@changesets/cli": "^2.29.6",
+		"@effect/vitest": "^0.25.1",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.1.5",
+		"tsup": "^8.5.0",
+		"typescript": "^5.9.2",
+		"vitest": "^3.2.4",
+		"@ballatech/biome-config": "workspace:*"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,css,md,json}": [
+			"pnpm format --no-errors-on-unmatched",
+			"vitest related --run"
+		]
+	}
+}

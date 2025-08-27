@@ -1,0 +1,16 @@
+{
+	"$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
+	"changelog": [
+		"@changesets/changelog-github",
+		{ "repo": "successkrisz/ballatech-public-packages" }
+	],
+	"commit": false,
+	"access": "public",
+	"baseBranch": "master",
+	"linked": [],
+	"updateInternalDependencies": "patch",
+	"snapshot": {
+		"useCalculatedVersion": true,
+		"prereleaseTemplate": "canary-${commit}"
+	}
+}
