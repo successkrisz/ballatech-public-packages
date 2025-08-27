@@ -1,6 +1,6 @@
-[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
-
 # @ballatech/biome-config
+
+[![npm version](https://img.shields.io/npm/v/%40ballatech%2Fbiome-config?logo=npm)](https://www.npmjs.com/package/@ballatech/biome-config) [![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
 
 > **@ballatech/biome-config**  
 > Shareable [Biome](https://biomejs.dev/) configuration for Ballatech projects.
