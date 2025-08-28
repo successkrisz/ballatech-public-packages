@@ -1,5 +1,11 @@
 # @ballatech/tsconfig
 
+## 1.1.1
+
+### Patch Changes
+
+- [`f7b19df`](https://github.com/successkrisz/ballatech-public-packages/commit/f7b19dff53b8c02973cc474d4b0f25d081c54356) Thanks [@successkrisz](https://github.com/successkrisz)! - fix: rule changes and move best practice rules to base json
+
 ## 1.1.0
 
 ### Minor Changes
