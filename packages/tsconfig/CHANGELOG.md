@@ -1,5 +1,11 @@
 # @ballatech/tsconfig
 
+## 1.1.0
+
+### Minor Changes
+
+- [`3fc549d`](https://github.com/successkrisz/ballatech-public-packages/commit/3fc549df38b360d81ec90712e1669677694a5277) Thanks [@successkrisz](https://github.com/successkrisz)! - feat: add effect language service
+
 ## 1.0.2
 
 ### Patch Changes
