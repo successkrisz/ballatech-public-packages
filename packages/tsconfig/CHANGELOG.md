@@ -1,5 +1,11 @@
 # @ballatech/tsconfig
 
+## 1.2.0
+
+### Minor Changes
+
+- [`e0db579`](https://github.com/successkrisz/ballatech-public-packages/commit/e0db579eef50c0cfa1c63795ff377ba865ab9d3b) Thanks [@successkrisz](https://github.com/successkrisz)! - feat: add tsconfig.react.json
+
 ## 1.1.2
 
 ### Patch Changes
