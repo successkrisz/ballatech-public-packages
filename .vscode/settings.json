@@ -1,12 +1,18 @@
 {
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "never",
+		"source.fixAll.biome": "explicit",
+		"source.organizeImports": "never",
+		"source.organizeImports.biome": "explicit"
+	},
 	"editor.defaultFormatter": "biomejs.biome",
 	"editor.formatOnSave": true,
-	"javascript.preferences.organizeImports": { "enabled": false },
-	"typescript.preferences.organizeImports": { "enabled": false },
-	"editor.codeActionsOnSave": {
-		"source.organizeImports.biome": "explicit",
-		"source.organizeImports": "never",
-		"source.fixAll": "never",
-		"source.fixAll.biome": "explicit"
-	}
+	"javascript.preferences.organizeImports": {
+		"enabled": false
+	},
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"typescript.preferences.organizeImports": {
+		"enabled": false
+	},
+	"typescript.tsdk": "./node_modules/typescript/lib"
 }

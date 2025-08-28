@@ -9,6 +9,9 @@ catalogs:
     '@biomejs/biome':
       specifier: ^2.2.2
       version: 2.2.2
+    '@effect/language-service':
+      specifier: ^0.36.0
+      version: 0.36.0
     '@types/node':
       specifier: ^22.18.0
       version: 22.18.0
@@ -38,6 +41,9 @@ importers:
       '@changesets/cli':
         specifier: ^2.29.6
         version: 2.29.6(@types/node@22.18.0)
+      '@effect/language-service':
+        specifier: 'catalog:'
+        version: 0.36.0
       '@effect/vitest':
         specifier: ^0.25.1
         version: 0.25.1(effect@3.17.9)(vitest@3.2.4(@types/node@22.18.0)(tsx@4.20.5)(yaml@2.8.1))
@@ -113,6 +119,10 @@ importers:
         version: 2.2.2
 
   packages/tsconfig:
+    dependencies:
+      '@effect/language-service':
+        specifier: 'catalog:'
+        version: 0.36.0
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
@@ -370,6 +380,10 @@ packages:
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
+
+  '@effect/language-service@0.36.0':
+    resolution: {integrity: sha512-KoE5e+7vhcd29fBTDBvttWHv1z1KPg9Ji2DyhD0hETBaoM9IsFymboD6WqpDoGH1QZRr6CmTD3DfaZUs8K6Mrg==}
+    hasBin: true
 
   '@effect/vitest@0.25.1':
     resolution: {integrity: sha512-OMYvOU8iGed8GZXxgVBXlYtjG+jwWj5cJxFk0hOHOfTbCHXtdCMEWlXNba5zxbE7dBnW4srbnSYrP/NGGTC3qQ==}
@@ -2636,6 +2650,8 @@ snapshots:
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
+
+  '@effect/language-service@0.36.0': {}
 
   '@effect/vitest@0.25.1(effect@3.17.9)(vitest@3.2.4(@types/node@22.18.0)(tsx@4.20.5)(yaml@2.8.1))':
     dependencies:

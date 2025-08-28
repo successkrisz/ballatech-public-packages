@@ -9,6 +9,14 @@ Internal shared tsconfig presets for the monorepo. Private package.
 - `tsconfig.node22.json`: Type-checking preset for Node 22 scripts executed with `tsx` or bundled with esbuild (no emit).
 - `tsconfig.lib.json`: Library preset for packages built with `tsup`, emitting declarations and sourcemaps.
 
+## Installation
+
+Install package with shared dependencies, add `-w` flag if using workspaces.
+
+```sh
+pnpm add -D @ballatech/tsconfig @effect/language-service @types/node@22
+```
+
 ## Usage (pnpm workspaces)
 
 In a package `tsconfig.json`, extend the desired preset:

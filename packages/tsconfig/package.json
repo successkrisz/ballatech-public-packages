@@ -12,6 +12,7 @@
 		"@types/node": "catalog:"
 	},
 	"peerDependencies": {
-		"@types/node": "catalog:"
+		"@types/node": "catalog:",
+		"@effect/language-service": "catalog:"
 	}
 }
