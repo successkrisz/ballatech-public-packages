@@ -9,15 +9,11 @@
 		"jsx": "react-jsx",
 		"allowJs": false,
 		"checkJs": false,
+		"declaration": false,
+		"declarationMap": false,
 		"noEmit": true,
-		"noUncheckedIndexedAccess": true,
-		"exactOptionalPropertyTypes": true,
-		"useUnknownInCatchVariables": true,
-		"forceConsistentCasingInFileNames": true,
-		"noImplicitOverride": true,
-		"noPropertyAccessFromIndexSignature": true,
+
 		"verbatimModuleSyntax": true,
-		"skipLibCheck": true,
 		"types": ["node"]
 	},
 	"exclude": ["dist", "node_modules"]

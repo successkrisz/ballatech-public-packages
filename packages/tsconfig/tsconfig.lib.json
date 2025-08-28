@@ -13,12 +13,7 @@
 		"allowJs": false,
 		"checkJs": false,
 		"noEmit": false,
-		"noUncheckedIndexedAccess": true,
-		"exactOptionalPropertyTypes": true,
-		"useUnknownInCatchVariables": true,
-		"forceConsistentCasingInFileNames": true,
-		"noImplicitOverride": true,
-		"noPropertyAccessFromIndexSignature": true,
+
 		"verbatimModuleSyntax": true,
 		"skipLibCheck": true,
 		"types": ["node"]

@@ -18,6 +18,8 @@
 		"noImplicitReturns": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitOverride": true,
 
 		"plugins": [
 			{
