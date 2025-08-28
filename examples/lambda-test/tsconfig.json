@@ -1,0 +1,4 @@
+{
+	"extends": "@ballatech/tsconfig/tsconfig.lambda22.json",
+	"include": ["src"]
+}

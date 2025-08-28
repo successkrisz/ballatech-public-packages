@@ -1,0 +1,37 @@
+{
+	"name": "lambda-test",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"cdk": "cdk",
+		"cdk:synth": "cdk synth",
+		"cdk:deploy": "cdk deploy",
+		"cdk:destroy": "cdk destroy",
+		"cdk:bootstrap": "cdk bootstrap",
+		"invoke:lambda": "tsx src/invoke-lambda.ts",
+		"typecheck": "tsc --noEmit"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "NONE",
+	"packageManager": "pnpm@10.15.0",
+	"devDependencies": {
+		"@aws-sdk/client-lambda": "^3.876.0",
+		"@ballatech/tsconfig": "workspace:*",
+		"@types/aws-lambda": "^8.10.152",
+		"aws-cdk": "^2.1026.0",
+		"aws-cdk-lib": "^2.212.0",
+		"constructs": "^10.4.2",
+		"ts-node": "^10.9.2",
+		"tsx": "^4.20.5",
+		"esbuild": "catalog:",
+		"@types/node": "catalog:"
+	},
+	"dependencies": {
+		"effect": "catalog:"
+	}
+}

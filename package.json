@@ -23,6 +23,7 @@
 	"license": "MIT",
 	"packageManager": "pnpm@10.15.0",
 	"devDependencies": {
+		"@ballatech/biome-config": "workspace:*",
 		"@biomejs/biome": "catalog:",
 		"@changesets/changelog-github": "^0.5.1",
 		"@changesets/cli": "^2.29.6",
@@ -31,8 +32,7 @@
 		"lint-staged": "^16.1.5",
 		"tsup": "^8.5.0",
 		"typescript": "^5.9.2",
-		"vitest": "^3.2.4",
-		"@ballatech/biome-config": "workspace:*"
+		"vitest": "^3.2.4"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx,css,md,json}": [
