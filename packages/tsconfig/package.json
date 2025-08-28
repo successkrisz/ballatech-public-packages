@@ -5,7 +5,8 @@
 		"tsconfig.base.json",
 		"tsconfig.lambda22.json",
 		"tsconfig.node22.json",
-		"tsconfig.lib.json"
+		"tsconfig.lib.json",
+		"tsconfig.react.json"
 	],
 	"devDependencies": {
 		"esbuild": "catalog:",
