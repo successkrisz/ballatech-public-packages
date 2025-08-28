@@ -58,3 +58,45 @@ Notes:
 
 - All presets target modern Node (ES2022), use `moduleResolution: "Bundler"`, and set strict type-checking.
 - Library preset enables declaration emit; bundlers like `tsup` should be configured to preserve type output.
+
+## CDK usage with `NodejsFunction`
+
+### CommonJS (default)
+
+```ts
+import * as lambda from 'aws-cdk-lib/aws-lambda'
+import * as nodejs from 'aws-cdk-lib/aws-lambda-nodejs'
+import { Stack } from 'aws-cdk-lib'
+import { Construct } from 'constructs'
+
+export class MyStack extends Stack {
+  constructor(scope: Construct, id: string) {
+    super(scope, id)
+
+    new nodejs.NodejsFunction(this, 'FnCjs', {
+      entry: 'src/handler.ts',
+      handler: 'handler',
+      runtime: lambda.Runtime.NODEJS_22_X,
+      bundling: {
+        tsconfig: 'packages/tsconfig/tsconfig.lambda22.json',
+        // format defaults to CJS; target inferred from runtime (node22)
+      },
+    })
+  }
+}
+```
+
+### ESM
+
+```ts
+new nodejs.NodejsFunction(this, 'FnEsm', {
+  entry: 'src/handler.ts',
+  handler: 'handler',
+  runtime: lambda.Runtime.NODEJS_22_X,
+  bundling: {
+    tsconfig: 'packages/tsconfig/tsconfig.lambda22.json',
+    format: nodejs.OutputFormat.ESM,
+    target: 'node22',
+  },
+})
+```
