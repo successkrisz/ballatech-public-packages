@@ -1,5 +1,11 @@
 # @ballatech/tsconfig
 
+## 1.1.2
+
+### Patch Changes
+
+- [`5a3cb64`](https://github.com/successkrisz/ballatech-public-packages/commit/5a3cb645fe1c6907da7c06a771522dba9a9ba3d2) Thanks [@successkrisz](https://github.com/successkrisz)! - fix: remove exactOptionalPropertyTypes ts rule
+
 ## 1.1.1
 
 ### Patch Changes
