@@ -1,5 +1,11 @@
 # @ballatech/tsconfig
 
+## 1.0.1
+
+### Patch Changes
+
+- [`d000192`](https://github.com/successkrisz/ballatech-public-packages/commit/d000192f2402e656a94ad89b2d566292d810efaa) Thanks [@successkrisz](https://github.com/successkrisz)! - fix: release issue
+
 ## 1.0.0
 
 ### Major Changes
