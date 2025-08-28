@@ -1,5 +1,11 @@
 # @ballatech/tsconfig
 
+## 1.0.2
+
+### Patch Changes
+
+- [`e7a5d62`](https://github.com/successkrisz/ballatech-public-packages/commit/e7a5d6272d179f581f6d80231553c1b04c012555) Thanks [@successkrisz](https://github.com/successkrisz)! - fix: mark as public
+
 ## 1.0.1
 
 ### Patch Changes
