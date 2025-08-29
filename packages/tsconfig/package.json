@@ -9,8 +9,8 @@
 		"tsconfig.react.json"
 	],
 	"devDependencies": {
-		"esbuild": "catalog:",
-		"@types/node": "catalog:"
+		"@types/node": "catalog:",
+		"esbuild": "catalog:"
 	},
 	"peerDependencies": {
 		"@types/node": "catalog:",

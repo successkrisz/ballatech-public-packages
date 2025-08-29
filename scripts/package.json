@@ -1,0 +1,20 @@
+{
+	"name": "@ballatech/scripts",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"type": "module",
+	"keywords": [],
+	"author": "Krisztian Balla",
+	"license": "MIT",
+	"packageManager": "pnpm@10.15.0",
+	"devDependencies": {
+		"@ballatech/tsconfig": "workspace:*",
+		"@effect/cli": "catalog:",
+		"@effect/platform": "catalog:",
+		"@effect/platform-node": "catalog:",
+		"@effect/platform-node-shared": "catalog:",
+		"effect": "catalog:",
+		"@types/node": "catalog:"
+	}
+}

@@ -1,0 +1,4 @@
+{
+	"extends": "@ballatech/tsconfig/tsconfig.lib.json",
+	"include": ["."]
+}

@@ -16,7 +16,7 @@
 		"release:version": "changeset version",
 		"release:publish": "changeset publish",
 		"update": "pnpm dlx taze -r",
-		"new": "node ./scripts/new-package.mjs"
+		"new": "pnpm dlx tsx ./scripts/new-pkg.ts"
 	},
 	"keywords": [],
 	"author": "Krisztian Balla",

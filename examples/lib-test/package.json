@@ -29,8 +29,8 @@
 	"author": "",
 	"packageManager": "pnpm@10.15.0",
 	"devDependencies": {
-		"tsup": "catalog:",
+		"@ballatech/tsconfig": "workspace:*",
 		"@types/node": "catalog:",
-		"@ballatech/tsconfig": "workspace:*"
+		"tsup": "catalog:"
 	}
 }

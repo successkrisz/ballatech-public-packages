@@ -23,13 +23,13 @@
 		"@aws-sdk/client-lambda": "^3.876.0",
 		"@ballatech/tsconfig": "workspace:*",
 		"@types/aws-lambda": "^8.10.152",
-		"aws-cdk": "^2.1026.0",
-		"aws-cdk-lib": "^2.212.0",
+		"@types/node": "catalog:",
+		"aws-cdk": "^2.1027.0",
+		"aws-cdk-lib": "^2.213.0",
 		"constructs": "^10.4.2",
-		"ts-node": "^10.9.2",
-		"tsx": "^4.20.5",
 		"esbuild": "catalog:",
-		"@types/node": "catalog:"
+		"ts-node": "^10.9.2",
+		"tsx": "^4.20.5"
 	},
 	"dependencies": {
 		"effect": "catalog:"
