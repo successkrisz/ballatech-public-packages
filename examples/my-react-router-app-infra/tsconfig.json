@@ -1,0 +1,7 @@
+{
+	"extends": "../../packages/tsconfig/tsconfig.lambda22.json",
+	"compilerOptions": {
+		"rootDir": "."
+	},
+	"include": ["src"]
+}

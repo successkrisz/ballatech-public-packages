@@ -1,0 +1,45 @@
+{
+	"name": "@ballatech/react-router7-preset-aws",
+	"version": "0.1.0",
+	"private": false,
+	"license": "MIT",
+	"sideEffects": false,
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist/**",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "tsup",
+		"prepack": "pnpm run build"
+	},
+	"devDependencies": {
+		"@types/node": "catalog:",
+		"@types/aws-lambda": "catalog:",
+		"react-router": "^7.0.0",
+		"@react-router/node": "^7.0.0"
+	},
+	"peerDependencies": {
+		"react-router": "^7.0.0",
+		"@react-router/node": "^7.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/successkrisz/ballatech-public-packages.git",
+		"directory": "packages/react-router7-preset-aws"
+	},
+	"bugs": {
+		"url": "https://github.com/successkrisz/ballatech-public-packages/issues"
+	},
+	"homepage": "https://github.com/successkrisz/ballatech-public-packages#readme"
+}

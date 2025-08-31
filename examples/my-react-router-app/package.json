@@ -1,0 +1,35 @@
+{
+	"name": "my-react-router-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "pnpm run build:react && pnpm run build:lambda",
+		"build:react": "dotenv -e ../../.envrc -- react-router build",
+		"build:lambda": "dotenv -e ../../.envrc -- node build.cjs",
+		"dev": "dotenv -e ../../.envrc -- react-router dev",
+		"start": "dotenv -e ../../.envrc -- react-router-serve ./build/server/index.js",
+		"typecheck": "react-router typegen && tsc"
+	},
+	"dependencies": {
+		"@react-router/node": "^7.7.1",
+		"@react-router/serve": "^7.7.1",
+		"isbot": "^5.1.27",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-router": "^7.7.1",
+		"@ballatech/react-router7-preset-aws": "workspace:*"
+	},
+	"devDependencies": {
+		"@react-router/dev": "^7.7.1",
+		"@tailwindcss/vite": "^4.1.4",
+		"@types/node": "^20",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
+		"tailwindcss": "^4.1.4",
+		"typescript": "^5.8.3",
+		"vite": "^6.3.3",
+		"vite-tsconfig-paths": "^5.1.4",
+		"esbuild": "catalog:",
+		"dotenv-cli": "catalog:"
+	}
+}

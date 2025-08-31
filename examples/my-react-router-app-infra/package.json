@@ -1,0 +1,30 @@
+{
+	"name": "my-react-router-app-infra",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"cdk": "cdk",
+		"cdk:synth": "cdk synth",
+		"cdk:deploy": "cdk deploy",
+		"cdk:destroy": "cdk destroy",
+		"cdk:bootstrap": "cdk bootstrap",
+		"build:app": "pnpm --filter my-react-router-app build",
+		"deploy": "pnpm run build:app && cdk deploy"
+	},
+	"devDependencies": {
+		"@ballatech/tsconfig": "workspace:*",
+		"@types/aws-lambda": "catalog:",
+		"@types/node": "catalog:",
+		"aws-cdk": "^2.1027.0",
+		"aws-cdk-lib": "^2.213.0",
+		"constructs": "^10.4.2",
+		"esbuild": "catalog:",
+		"ts-node": "^10.9.2",
+		"tsx": "^4.20.5"
+	},
+	"dependencies": {
+		"aws-sdk": "^2.1692.0"
+	},
+	"packageManager": "pnpm@10.15.0"
+}

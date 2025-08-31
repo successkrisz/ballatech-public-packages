@@ -7,7 +7,7 @@
 	"commit": false,
 	"access": "public",
 	"baseBranch": "master",
-	"ignore": ["lib-test", "lambda-test"],
+	"ignore": ["lib-test", "lambda-test", "my-react-router-app-infra", "my-react-router-app"],
 	"linked": [],
 	"updateInternalDependencies": "patch",
 	"snapshot": {
