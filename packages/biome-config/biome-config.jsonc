@@ -7,7 +7,11 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**/*.{cjs,mjs,js,jsx,ts,tsx,json}"]
+		"includes": [
+			"**/*.{cjs,mjs,js,jsx,ts,tsx,json}",
+			"!**/build/**",
+			"!**/dist/**"
+		]
 	},
 	"formatter": {
 		"enabled": true,
