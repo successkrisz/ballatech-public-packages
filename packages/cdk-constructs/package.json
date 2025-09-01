@@ -1,0 +1,48 @@
+{
+	"name": "@ballatech/cdk-constructs",
+	"version": "0.1.0",
+	"private": false,
+	"license": "MIT",
+	"sideEffects": false,
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"files": [
+		"dist/**",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "tsup",
+		"prepack": "pnpm run build"
+	},
+	"devDependencies": {
+		"@effect/platform": "catalog:",
+		"effect": "catalog:",
+		"aws-cdk-lib": "catalog:",
+		"constructs": "catalog:"
+	},
+	"peerDependencies": {
+		"@effect/platform": "catalog:",
+		"effect": "catalog:",
+		"aws-cdk-lib": "catalog:",
+		"constructs": "catalog:"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/successkrisz/ballatech-public-packages.git",
+		"directory": "packages/cdk-constructs"
+	},
+	"bugs": {
+		"url": "https://github.com/successkrisz/ballatech-public-packages/issues"
+	},
+	"homepage": "https://github.com/successkrisz/ballatech-public-packages#readme"
+}

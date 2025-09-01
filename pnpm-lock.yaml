@@ -30,6 +30,12 @@ catalogs:
     '@types/node':
       specifier: ^22.18.0
       version: 22.18.0
+    aws-cdk-lib:
+      specifier: ^2.213.0
+      version: 2.213.0
+    constructs:
+      specifier: ^10.4.2
+      version: 10.4.2
     dotenv-cli:
       specifier: ^10.0.0
       version: 10.0.0
@@ -194,6 +200,9 @@ importers:
         specifier: ^2.1692.0
         version: 2.1692.0
     devDependencies:
+      '@ballatech/cdk-constructs':
+        specifier: workspace:*
+        version: link:../../packages/cdk-constructs
       '@ballatech/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
@@ -227,6 +236,21 @@ importers:
       '@biomejs/biome':
         specifier: 'catalog:'
         version: 2.2.2
+
+  packages/cdk-constructs:
+    devDependencies:
+      '@effect/platform':
+        specifier: 'catalog:'
+        version: 0.90.6(effect@3.17.9)
+      aws-cdk-lib:
+        specifier: 'catalog:'
+        version: 2.213.0(constructs@10.4.2)
+      constructs:
+        specifier: 'catalog:'
+        version: 10.4.2
+      effect:
+        specifier: 'catalog:'
+        version: 3.17.9
 
   packages/react-router7-preset-aws:
     devDependencies:

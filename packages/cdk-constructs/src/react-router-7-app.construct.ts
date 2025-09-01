@@ -11,33 +11,49 @@ import { BlockPublicAccess, ObjectOwnership } from 'aws-cdk-lib/aws-s3'
 import * as s3_deployment from 'aws-cdk-lib/aws-s3-deployment'
 import { Construct } from 'constructs'
 
-export interface ReactRouterV7StackProps {
-	serverBuildPath: string
+export interface ReactRouterV7AppProps {
 	clientBuildPath: string
-	environment: {
-		[key: string]: string
-	}
+	environment: Record<string, string>
+	serverBuildPath: string
+	stageName: string
+	productName: string
+
+	lambdaProps?: lambda_nodejs.NodejsFunctionProps
+	bucket?: s3.Bucket
 	distributionProps?: cloudfront.DistributionProps
 }
 
-export class ReactRouterV7Stack extends Construct {
+/**
+ * A construct that creates a React Router 7 app using:
+ *
+ * - AWS Lambda: to serve the serverside requests
+ * - AWS API Gateway: to connect the Lambda function to CloudFront
+ * - AWS CloudFront: to serve the entire application
+ * - AWS S3: to store static assets
+ *
+ */
+export class ReactRouterV7App extends Construct {
 	public readonly bucket: s3.Bucket
 	public readonly lambda: lambda_nodejs.NodejsFunction
 	public readonly api: apigatewayv2.HttpApi
 	public readonly distribution: cloudfront.Distribution
-	constructor(scope: Construct, id: string, props: ReactRouterV7StackProps) {
+	constructor(scope: Construct, id: string, props: ReactRouterV7AppProps) {
 		super(scope, id)
-		const prefix = 'kb-test'
-		const productName = 'kb-test'
 
-		this.bucket = new s3.Bucket(this, `${prefix}-ServerBucket`, {
-			blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
-			bucketName: `${prefix}-server`,
-			objectOwnership: ObjectOwnership.OBJECT_WRITER,
-			publicReadAccess: false,
-			removalPolicy: RemovalPolicy.DESTROY,
-			autoDeleteObjects: true,
-		})
+		const productName = props.productName.toLowerCase()
+		const stageName = props.stageName.toLowerCase()
+		const prefix = `${productName}-${stageName}`
+
+		this.bucket =
+			props.bucket ??
+			new s3.Bucket(this, `${prefix}-ServerBucket`, {
+				blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
+				bucketName: `${prefix}-server`,
+				objectOwnership: ObjectOwnership.OBJECT_WRITER,
+				publicReadAccess: false,
+				removalPolicy: RemovalPolicy.DESTROY,
+				autoDeleteObjects: true,
+			})
 
 		const bucketOriginAccessIdentity = new cloudfront.OriginAccessIdentity(
 			this,
@@ -46,11 +62,9 @@ export class ReactRouterV7Stack extends Construct {
 		this.bucket.grantRead(bucketOriginAccessIdentity)
 
 		this.lambda = new lambda_nodejs.NodejsFunction(this, `${prefix}-ServerLambda`, {
-			functionName: `${prefix}-server`,
-			description: productName,
-			runtime: lambda.Runtime.NODEJS_22_X,
 			memorySize: 1536,
-			entry: props.serverBuildPath,
+			runtime: lambda.Runtime.NODEJS_22_X,
+			description: productName,
 			bundling: {
 				minify: true,
 				sourceMap: false,
@@ -59,8 +73,11 @@ export class ReactRouterV7Stack extends Construct {
 				externalModules: ['aws-sdk', '@aws-sdk/*'],
 			},
 			tracing: lambda.Tracing.ACTIVE,
-			timeout: Duration.minutes(5),
+			timeout: Duration.seconds(30),
 			logRetention: logs.RetentionDays.THREE_DAYS,
+			...props.lambdaProps,
+			functionName: `${prefix}-server`,
+			entry: props.serverBuildPath,
 			environment: props.environment,
 		})
 
