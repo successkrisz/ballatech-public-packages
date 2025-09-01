@@ -1,5 +1,11 @@
 # @ballatech/react-router7-preset-aws
 
+## 1.0.1
+
+### Patch Changes
+
+- [`f0bf883`](https://github.com/successkrisz/ballatech-public-packages/commit/f0bf8832b3bda2c5936ce2850d77bcab2b490e8b) Thanks [@successkrisz](https://github.com/successkrisz)! - fix: export cjs
+
 ## 1.0.0
 
 ### Major Changes
