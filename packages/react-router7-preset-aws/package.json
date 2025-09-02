@@ -25,10 +25,10 @@
 		"prepack": "pnpm run build"
 	},
 	"devDependencies": {
-		"@types/node": "catalog:",
+		"@react-router/node": "^7.8.2",
 		"@types/aws-lambda": "catalog:",
-		"react-router": "^7.0.0",
-		"@react-router/node": "^7.0.0"
+		"@types/node": "catalog:",
+		"react-router": "^7.8.2"
 	},
 	"peerDependencies": {
 		"react-router": "^7.0.0",

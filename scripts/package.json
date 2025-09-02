@@ -7,14 +7,14 @@
 	"keywords": [],
 	"author": "Krisztian Balla",
 	"license": "MIT",
-	"packageManager": "pnpm@10.15.0",
+	"packageManager": "pnpm@10.15.1",
 	"devDependencies": {
 		"@ballatech/tsconfig": "workspace:*",
 		"@effect/cli": "catalog:",
 		"@effect/platform": "catalog:",
 		"@effect/platform-node": "catalog:",
 		"@effect/platform-node-shared": "catalog:",
-		"effect": "catalog:",
-		"@types/node": "catalog:"
+		"@types/node": "catalog:",
+		"effect": "catalog:"
 	}
 }

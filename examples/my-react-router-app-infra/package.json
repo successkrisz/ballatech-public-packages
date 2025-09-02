@@ -13,12 +13,12 @@
 		"deploy": "pnpm run build:app && cdk deploy"
 	},
 	"devDependencies": {
-		"@ballatech/tsconfig": "workspace:*",
 		"@ballatech/cdk-constructs": "workspace:*",
+		"@ballatech/tsconfig": "workspace:*",
 		"@types/aws-lambda": "catalog:",
 		"@types/node": "catalog:",
 		"aws-cdk": "^2.1027.0",
-		"aws-cdk-lib": "^2.213.0",
+		"aws-cdk-lib": "^2.214.0",
 		"constructs": "^10.4.2",
 		"esbuild": "catalog:",
 		"ts-node": "^10.9.2",
@@ -27,5 +27,5 @@
 	"dependencies": {
 		"aws-sdk": "^2.1692.0"
 	},
-	"packageManager": "pnpm@10.15.0"
+	"packageManager": "pnpm@10.15.1"
 }

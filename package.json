@@ -21,7 +21,7 @@
 	"keywords": [],
 	"author": "Krisztian Balla",
 	"license": "MIT",
-	"packageManager": "pnpm@10.15.0",
+	"packageManager": "pnpm@10.15.1",
 	"devDependencies": {
 		"@ballatech/biome-config": "workspace:*",
 		"@biomejs/biome": "catalog:",
@@ -30,7 +30,7 @@
 		"@effect/language-service": "catalog:",
 		"@effect/vitest": "^0.25.1",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.1.5",
+		"lint-staged": "^16.1.6",
 		"tsup": "^8.5.0",
 		"typescript": "^5.9.2",
 		"vitest": "^3.2.4"

@@ -26,9 +26,9 @@
 	},
 	"devDependencies": {
 		"@effect/platform": "catalog:",
-		"effect": "catalog:",
 		"aws-cdk-lib": "catalog:",
-		"constructs": "catalog:"
+		"constructs": "catalog:",
+		"effect": "catalog:"
 	},
 	"peerDependencies": {
 		"@effect/platform": "catalog:",
