@@ -28,13 +28,15 @@
 		"@effect/platform": "catalog:",
 		"aws-cdk-lib": "catalog:",
 		"constructs": "catalog:",
-		"effect": "catalog:"
+		"effect": "catalog:",
+		"@types/node": "catalog:"
 	},
 	"peerDependencies": {
 		"@effect/platform": "catalog:",
 		"effect": "catalog:",
 		"aws-cdk-lib": "catalog:",
-		"constructs": "catalog:"
+		"constructs": "catalog:",
+		"@types/node": "catalog:"
 	},
 	"repository": {
 		"type": "git",

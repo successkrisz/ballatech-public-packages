@@ -254,6 +254,9 @@ importers:
       '@effect/platform':
         specifier: 'catalog:'
         version: 0.90.6(effect@3.17.10)
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.18.0
       aws-cdk-lib:
         specifier: 'catalog:'
         version: 2.214.0(constructs@10.4.2)
