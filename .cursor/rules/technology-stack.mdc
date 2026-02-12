@@ -1,0 +1,167 @@
+---
+alwaysApply: true
+description: Technology stack decisions for NodeJS 22.x, TypeScript+Effect, pnpm, Biome, Vitest, AWS, CDK, GitLab CI, git tooling, and docs
+---
+# Technology Stack
+
+## Overview
+
+Our primary programming language is TypeScript using Effect, running on NodeJS 22.x runtime.
+
+All our repositories should be using the following tooling to ensure consistency and quality:
+
+- Programming Language: Node 22.x (LTS) + latest TypeScript + latest [Effect](https://effect.website/docs)
+- Package Manager: [pnpm](https://pnpm.io/) with extensive use of workspaces installed using corepack
+- Linting: [Biome](https://biomejs.dev/)
+- Testing: [vitest](https://vitest.dev/)
+  - Unit tests: [@effect/vitest](https://effect.website/docs/testing/vitest)
+  - E2E tests: [supertest](https://github.com/visionmedia/supertest)
+- Infrastructure: AWS preferring cloud native solutions (Lambda, S3, DynamoDB, etc.)
+- IoC: [AWS CDK](https://aws.amazon.com/cdk/)
+- CI/CD: [GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
+
+## Programming Language
+
+Our primary programming language is TypeScript using Effect, running on NodeJS 22.x runtime.
+
+- Install local node version using [nvm](https://github.com/nvm-sh/nvm)
+- Run ts files using `pnpm exec tsx`
+- Bundle code using [esbuild](https://esbuild.github.io/) or in case of Lambda functions using The [NodeJSFunction construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs.NodejsFunction.html)
+- Bundle npm packages using [tsup](https://tsup.egoist.dev/)
+
+## Package Manager
+
+Always use pnpm installed via corepack as our package manager.
+
+For all repositories we use pnpm workspaces, which can be initialized by creating a `pnpm-workspace.yaml` file in the root of the repository. once it's initialised using `pnpm init` we can start adding packages to the workspace using `pnpm add <package> --workspace`
+
+An example of a `pnpm-workspace.yaml` file:
+
+```yaml
+packages:
+  - packages/*
+```
+
+## Linting and Formatting
+
+We use Biome for linting and formatting, with the following configuration:
+
+```json
+{
+ "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+ "vcs": {
+  "enabled": true,
+  "clientKind": "git",
+  "useIgnoreFile": true
+ },
+ "files": {
+  "ignoreUnknown": false,
+  "includes": [
+   "*.{js,jsx,ts,tsx,json}"
+  ]
+ },
+ "formatter": {
+  "enabled": true,
+  "indentStyle": "tab"
+ },
+ "organizeImports": {
+  "enabled": true
+ },
+ "linter": {
+  "enabled": true,
+  "rules": {
+   "recommended": true,
+   "style": {
+    "noParameterAssign": "error",
+    "useAsConstAssertion": "error",
+    "useDefaultParameterLast": "error",
+    "useEnumInitializers": "error",
+    "useSelfClosingElements": "error",
+    "useSingleVarDeclarator": "error",
+    "noUnusedTemplateLiteral": "error",
+    "useNumberNamespace": "error",
+    "noInferrableTypes": "error",
+    "noUselessElse": "error"
+   }
+  }
+ },
+ "javascript": {
+  "formatter": {
+   "quoteStyle": "single",
+   "semicolons": "asNeeded"
+  }
+ }
+}
+```
+
+## Testing
+
+Use [vitest](https://vitest.dev/) as a test runner,
+
+- Unit tests: [@effect/vitest](https://effect.website/docs/testing/vitest)
+- E2E tests: [supertest](https://github.com/visionmedia/supertest)
+
+Examples:
+
+```ts
+// Unit test example
+import { describe, it, expect } from "@effect/vitest";
+import { Effect } from "effect";
+
+describe("my effect", () => {
+  it.effect("succeeds", () =>
+    Effect.gen(function* () {
+      const result = yield* Effect.succeed(42);
+      expect(result).toBe(42);
+    })
+  );
+});
+
+// E2E test example
+import { describe, it, expect } from "@effect/vitest";
+import request from "supertest";
+
+describe("Foo API", () => {
+  it("should return 200", () =>
+    request("https://some-api.com").get("/foo").expect(200)
+  );
+});
+```
+
+## Infrastructure
+
+We use [AWS CDK](https://aws.amazon.com/cdk/) to define our infrastructure.
+
+## CI/CD
+
+We use [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) to run our tests and deploy our code.
+
+The flow typically follows the following stages:
+
+- Prepare dependencies and cache the pnpm cache
+- Run code quality checks:
+  - Linting
+  - Unit tests
+- Deploy the code to the non-prod environment(s)
+  - On topic branches there is only a manual step to deploy to `mx-play`
+  - On the default branch it automatically deploys to both `mx-play` and `staging`
+- Run E2E tests against the `staging` environment
+- Deploy the code to the `production` environment (if fully tested this is automatically triggered, otherwise it's a manual step)
+- Deploy the updated documentation to Gitlab Pages
+
+## Git tooling
+
+The agreed convention for commit messages is [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
+To catch issues early we use the following git tooling, where linting, formatting and unit tests are run on the pre-commit hook.
+
+- [Husky](https://typicode.github.io/husky/#/) for pre-commit hooks
+- [lint-staged](https://github.com/okonet/lint-staged) for running linting and formatting on staged files
+- [commitlint](https://commitlint.js.org/) for commit message validation
+- [commitizen](https://commitizen.github.io/cz-cli/) for interactive commit messages
+
+## Documentation
+
+We use [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/) to deploy our documentation.
+
+The documentation is written in [Markdown](https://www.markdownguide.org/) and is deployed to Gitlab Pages.

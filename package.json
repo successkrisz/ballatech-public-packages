@@ -11,6 +11,7 @@
 		"lint-staged": "lint-staged",
 		"lint": "biome check",
 		"new": "pnpm dlx tsx ./scripts/new-pkg.ts",
+		"pack:check": "rm -rf .pack && mkdir -p .pack && pnpm -r --filter './packages/**' exec pnpm pack --pack-destination ../../.pack",
 		"prepare": "husky",
 		"release:publish": "changeset publish",
 		"release:version": "changeset version",
@@ -32,13 +33,22 @@
 		"@commitlint/config-conventional": "^19.8.1",
 		"@commitlint/cz-commitlint": "^19.8.1",
 		"@effect/language-service": "catalog:",
-		"@effect/vitest": "^0.25.1",
+		"@effect/vitest": "^0.27.0",
 		"commitizen": "^4.3.1",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.1.6",
 		"tsup": "^8.5.0",
 		"typescript": "^5.9.2",
 		"vitest": "^3.2.4"
+	},
+	"pnpm": {
+		"overrides": {
+			"@effect/rpc": "^0.73.0",
+			"@effect/cluster": "^0.56.3",
+			"@effect/sql": "^0.49.0",
+			"@effect/printer": "^0.47.0",
+			"@effect/printer-ansi": "^0.47.0"
+		}
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx,css,md,json}": [

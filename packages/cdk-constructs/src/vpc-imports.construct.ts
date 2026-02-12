@@ -2,6 +2,28 @@ import * as ec2 from 'aws-cdk-lib/aws-ec2'
 import type * as lambda_nodejs from 'aws-cdk-lib/aws-lambda-nodejs'
 import { Construct } from 'constructs'
 
+/**
+ * Utility construct for importing an existing VPC, subnets, and security groups by ID,
+ * and providing the necessary properties to attach AWS Lambda functions to the VPC.
+ *
+ * Usage:
+ *   - Instantiate `VpcImports` with the VPC ID, an array of security group IDs, and an array of subnet IDs.
+ *   - Use the `.lambdaProps` property to spread into Lambda function props, ensuring the function is deployed
+ *     within the specified VPC, subnets, and security groups.
+ *
+ * Example:
+ *   const vpcImports = new VpcImports(this, 'VpcImports', {
+ *     vpcId: 'vpc-123',
+ *     securityGroupIds: ['sg-abc'],
+ *     subnetIds: ['subnet-1', 'subnet-2'],
+ *   });
+ *
+ *   new NodejsFunction(this, 'Fn', {
+ *     ...vpcImports.lambdaProps,
+ *     // other lambda props
+ *   });
+ */
+
 export interface VpcImportsProps {
 	vpcId: string
 	securityGroupIds: [string, ...string[]]

@@ -1,5 +1,10 @@
+import { NodeHttpClient } from '@effect/platform-node'
 import type { APIGatewayProxyEventV2 } from 'aws-lambda'
-import { Effect, Schema } from 'effect'
+import { DateTime, Effect, ManagedRuntime, Schema } from 'effect'
+
+import { Foos } from './get-foos'
+
+const runtime = ManagedRuntime.make(NodeHttpClient.layerUndici)
 
 const EventSchema = Schema.Struct({
 	name: Schema.String,
@@ -7,8 +12,17 @@ const EventSchema = Schema.Struct({
 
 export const handler = (event: APIGatewayProxyEventV2) =>
 	Effect.gen(function* () {
+		const now = yield* DateTime.now
+		const formattedNow = DateTime.formatIntl(
+			now,
+			Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'short' }),
+		)
 		const body = yield* Schema.decodeUnknown(Schema.parseJson(EventSchema))(event.body)
-		const res = { message: `Hello, ${body.name}!` }
+		const res = { message: `[${formattedNow}] Hello, ${body.name}!` }
+		yield* Effect.log(res)
+		yield* Effect.logInfo(`Started at: ${formattedNow}`)
+		const foos = yield* Foos
+		yield* Effect.log(foos)
 
 		return {
 			statusCode: 200,
@@ -17,4 +31,4 @@ export const handler = (event: APIGatewayProxyEventV2) =>
 			},
 			body: JSON.stringify(res),
 		}
-	}).pipe(Effect.runPromise)
+	}).pipe(runtime.runPromise)

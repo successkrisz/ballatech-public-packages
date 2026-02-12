@@ -21,6 +21,7 @@
 	"packageManager": "pnpm@10.15.1",
 	"devDependencies": {
 		"@aws-sdk/client-lambda": "^3.879.0",
+		"@ballatech/cdk-constructs": "workspace:*",
 		"@ballatech/tsconfig": "workspace:*",
 		"@types/aws-lambda": "^8.10.152",
 		"@types/node": "catalog:",
@@ -32,6 +33,9 @@
 		"tsx": "^4.20.5"
 	},
 	"dependencies": {
-		"effect": "catalog:"
+		"@effect/platform": "catalog:",
+		"@effect/platform-node": "catalog:",
+		"effect": "catalog:",
+		"effect-lambda": "^0.5.2"
 	}
 }
